@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 158342377}
   - component: {fileID: 158342376}
   - component: {fileID: 158342375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,9 +441,9 @@ GameObject:
   - component: {fileID: 1054380370}
   - component: {fileID: 1054380369}
   - component: {fileID: 1054380368}
-  - component: {fileID: 1054380371}
   - component: {fileID: 1054380373}
   - component: {fileID: 1054380372}
+  - component: {fileID: 1054380374}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -509,7 +509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054380365}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 2.68, z: 0}
+  m_LocalPosition: {x: 4.5, y: 11.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -517,22 +517,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1054380371
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054380365}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &1054380372
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -559,7 +543,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db3089131391574eb2db654d0ca89da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpF: 1000
-  gravity: 100
-  rb: {fileID: 1054380371}
+  controller: {fileID: 1054380374}
+  groundCheck: {fileID: 184935552}
+  speed: 12
+  gravity: 10
+  jumpHeight: 15
+  detectRadius: 0.4
+  detection:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!143 &1054380374
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054380365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
